@@ -11,11 +11,12 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Главная' },
-  { href: '/assets', label: 'Активы' },
   { href: '/#about', label: 'Обо мне' },
   { href: '/#testimonials', label: 'Отзывы' },
   { href: '/#contact', label: 'Контакт' },
 ];
+
+const assetsLink = { href: '/assets', label: 'Активы' };
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,19 +31,23 @@ export function Header() {
       const sections = ['about', 'testimonials', 'contact'];
       let currentSection = '';
 
-      sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = `#${sectionId}`;
+      if (window.scrollY < 400) {
+        currentSection = '/';
+      } else {
+        sections.forEach(sectionId => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              currentSection = `/#${sectionId}`;
+            }
           }
-        }
-      });
+        });
+      }
       
       if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
         const contactSection = document.getElementById('contact');
-        if(contactSection) currentSection = '#contact';
+        if(contactSection) currentSection = '/#contact';
       }
 
       setActiveSection(currentSection);
@@ -70,11 +75,12 @@ export function Header() {
   };
 
   const isLinkActive = (href: string) => {
-    if (pathname === '/' && href.startsWith('/#')) {
-      // For homepage hash links, check against the activeSection state
-      return activeSection === href.substring(1);
+    if (href.startsWith('/#')) {
+      return activeSection === href;
     }
-    // For other pages, it's a direct pathname match
+    if (href === '/') {
+        return activeSection === href && pathname === '/';
+    }
     return pathname === href;
   };
 
@@ -95,16 +101,8 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-2">
-            {navLinks.map((link) => {
-              if(link.href === '/assets') {
-                return (
-                  <Button asChild key={link.href} className={cn(isLinkActive(link.href) ? '' : '')}>
-                    <Link href={link.href}>{link.label}</Link>
-                  </Button>
-                )
-              }
-              return (
+          <nav className="hidden md:flex items-center gap-2 flex-1 justify-end">
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -116,7 +114,10 @@ export function Header() {
               >
                 {link.label}
               </Link>
-            )})}
+            ))}
+            <Button asChild key={assetsLink.href} className={cn('ml-4', isLinkActive(assetsLink.href) ? '' : '')}>
+                <Link href={assetsLink.href}>{assetsLink.label}</Link>
+            </Button>
           </nav>
 
           <div className="md:hidden">
@@ -142,7 +143,7 @@ export function Header() {
                         </Button>
                     </div>
                   <nav className="flex flex-col items-center justify-center flex-1 gap-8">
-                    {navLinks.map((link) => (
+                    {[...navLinks, assetsLink].map((link) => (
                        <Link
                         key={link.href}
                         href={link.href}
