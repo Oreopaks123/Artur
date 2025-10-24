@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -59,7 +60,7 @@ export default function Home() {
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-card">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
               <div className="md:col-span-2">
                 <div className="relative aspect-square rounded-lg overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
@@ -88,7 +89,7 @@ export default function Home() {
         </section>
 
         <section id="testimonials" className="py-16 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-headline">
                 Слова доверия
@@ -141,7 +142,7 @@ export default function Home() {
         </section>
 
         <section id="contact" className="py-16 md:py-24 bg-card">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <Card className="max-w-3xl mx-auto shadow-2xl">
               <CardHeader className="text-center">
                 <CardTitle className="text-3xl md:text-4xl font-headline">
