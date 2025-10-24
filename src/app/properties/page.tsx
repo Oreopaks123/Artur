@@ -12,7 +12,7 @@ export default function PropertiesPage() {
               Тщательно подобранный выбор лучших активов, доступных на рынке. Откройте для себя непревзойденную роскошь и мастерство.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {properties.map((property) => (
               <PropertyCard key={property.id} property={property} />
             ))}

@@ -59,7 +59,7 @@ export default function Home() {
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-card">
-          <div className="container px-4 md:px-6 text-left">
+          <div className="container px-4 md:px-6">
             <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
               <div className="md:col-span-2">
                 <div className="relative aspect-square rounded-lg overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
@@ -72,7 +72,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="md:col-span-3">
+              <div className="md:col-span-3 text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-headline text-accent">
                   Артур Артурович
                 </h2>
@@ -97,7 +97,7 @@ export default function Home() {
                 Услышьте от клиентов, которые ощутили разницу с Artur Estate.
               </p>
             </div>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((testimonial) => {
                 const image = PlaceHolderImages.find(
                   (img) => img.id === testimonial.imageId
@@ -142,7 +142,7 @@ export default function Home() {
 
         <section id="contact" className="py-16 md:py-24 bg-card">
           <div className="container px-4 md:px-6">
-            <Card className="max-w-3xl mx-auto shadow-2xl text-left">
+            <Card className="max-w-3xl mx-auto shadow-2xl">
               <CardHeader className="text-center">
                 <CardTitle className="text-3xl md:text-4xl font-headline">
                   Сделать запрос

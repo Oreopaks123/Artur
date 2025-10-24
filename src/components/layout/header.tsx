@@ -56,6 +56,9 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+             <Button asChild>
+                <Link href="/#contact">Контакт</Link>
+            </Button>
           </nav>
 
           <div className="md:hidden">
@@ -94,6 +97,9 @@ export function Header() {
                         {link.label}
                       </Link>
                     ))}
+                     <Button asChild onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/#contact">Контакт</Link>
+                    </Button>
                   </nav>
                 </div>
               </SheetContent>
