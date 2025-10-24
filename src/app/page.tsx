@@ -28,7 +28,7 @@ export default function Home() {
         <section className="relative w-full h-[80vh] min-h-[500px] flex items-center justify-center text-center">
           <Image
             src={heroImage?.imageUrl || ''}
-            alt={heroImage?.description || 'Luxury interior'}
+            alt={heroImage?.description || 'Роскошный интерьер'}
             fill
             className="object-cover -z-10"
             data-ai-hint={heroImage?.imageHint}
@@ -40,11 +40,11 @@ export default function Home() {
               Artur Estate
             </h1>
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 drop-shadow">
-              Your Purveyor of the World's Most Exclusive Assets
+              Ваш поставщик самых эксклюзивных активов в мире
             </p>
             <div className="mt-8 flex gap-4 justify-center">
               <Button asChild size="lg" className="font-headline tracking-wide">
-                <Link href="/properties">Explore Properties</Link>
+                <Link href="/properties">Изучить недвижимость</Link>
               </Button>
               <Button
                 asChild
@@ -52,20 +52,20 @@ export default function Home() {
                 size="lg"
                 className="font-headline tracking-wide"
               >
-                <Link href="#contact">Contact Artur</Link>
+                <Link href="#contact">Связаться с Артуром</Link>
               </Button>
             </div>
           </div>
         </section>
 
         <section id="about" className="py-16 md:py-24 bg-card">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 text-left">
             <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
               <div className="md:col-span-2">
                 <div className="relative aspect-square rounded-lg overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
                   <Image
                     src={aboutImage?.imageUrl || ''}
-                    alt={aboutImage?.description || 'Artur Arturóvich'}
+                    alt={aboutImage?.description || 'Артур Артурович'}
                     fill
                     className="object-cover"
                     data-ai-hint={aboutImage?.imageHint}
@@ -74,20 +74,13 @@ export default function Home() {
               </div>
               <div className="md:col-span-3">
                 <h2 className="text-3xl md:text-4xl font-headline text-accent">
-                  Artur Arturóvich
+                  Артур Артурович
                 </h2>
                 <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  With over two decades of experience in the luxury market, Artur
-                  Arturóvich has cultivated a reputation for unparalleled
-                  discretion, expertise, and access to the most coveted assets
-                  worldwide. From palatial estates and rare automobiles to
-                  museum-quality jewelry, Artur provides a bespoke service for a
-                  discerning clientele.
+                  Обладая более чем двадцатилетним опытом работы на рынке элитных товаров и услуг, Артур Артурович заслужил репутацию специалиста, отличающегося непревзойденной осмотрительностью, опытом и доступом к самым желанным активам по всему миру. От дворцовых поместий и редких автомобилей до ювелирных изделий музейного качества — Артур предоставляет индивидуальные услуги для взыскательной клиентуры.
                 </p>
                 <p className="mt-4 text-muted-foreground leading-relaxed">
-                  "My philosophy is simple: to unite extraordinary people with
-                  extraordinary possessions. It is not merely a transaction, but
-                  the curation of a legacy."
+                  «Моя философия проста: объединять выдающихся людей с выдающимися вещами. Это не просто сделка, а создание наследия».
                 </p>
               </div>
             </div>
@@ -98,14 +91,13 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-headline">
-                Words of Trust
+                Слова доверия
               </h2>
               <p className="mt-2 max-w-2xl mx-auto text-muted-foreground">
-                Hear from clients who have experienced the Artur Estate
-                difference.
+                Услышьте от клиентов, которые ощутили разницу с Artur Estate.
               </p>
             </div>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
               {testimonials.map((testimonial) => {
                 const image = PlaceHolderImages.find(
                   (img) => img.id === testimonial.imageId
@@ -150,24 +142,24 @@ export default function Home() {
 
         <section id="contact" className="py-16 md:py-24 bg-card">
           <div className="container px-4 md:px-6">
-            <Card className="max-w-3xl mx-auto shadow-2xl">
+            <Card className="max-w-3xl mx-auto shadow-2xl text-left">
               <CardHeader className="text-center">
                 <CardTitle className="text-3xl md:text-4xl font-headline">
-                  Make an Inquiry
+                  Сделать запрос
                 </CardTitle>
                 <p className="text-muted-foreground">
-                  Your journey towards acquiring the exceptional begins here.
+                  Ваш путь к приобретению исключительного начинается здесь.
                 </p>
               </CardHeader>
               <CardContent>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" placeholder="Your Name" />
+                      <Label htmlFor="name">Полное имя</Label>
+                      <Input id="name" placeholder="Ваше имя" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
+                      <Label htmlFor="email">Адрес электронной почты</Label>
                       <Input
                         id="email"
                         type="email"
@@ -176,19 +168,19 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="e.g., Property Inquiry" />
+                    <Label htmlFor="subject">Тема</Label>
+                    <Input id="subject" placeholder="например, Запрос о недвижимости" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">Сообщение</Label>
                     <Textarea
                       id="message"
-                      placeholder="Please describe your needs..."
+                      placeholder="Пожалуйста, опишите ваши потребности..."
                       rows={6}
                     />
                   </div>
                   <Button type="submit" size="lg" className="w-full font-headline tracking-wide">
-                    Send Message
+                    Отправить сообщение
                   </Button>
                 </form>
               </CardContent>

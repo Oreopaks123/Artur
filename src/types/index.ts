@@ -12,5 +12,5 @@ export type Property = {
   description: string;
   price: string;
   imageId: string;
-  type: 'Real Estate' | 'Car' | 'Jewelry' | 'Other';
+  type: 'Недвижимость' | 'Автомобиль' | 'Ювелирное изделие' | 'Прочее';
 };

@@ -10,9 +10,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/properties', label: 'Properties' },
-  { href: '/recommendations', label: 'AI Search' },
+  { href: '/', label: 'Главная' },
+  { href: '/properties', label: 'Недвижимость' },
 ];
 
 export function Header() {
@@ -64,7 +63,7 @@ export function Header() {
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu />
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Открыть меню</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="bg-background w-full">
@@ -78,7 +77,7 @@ export function Header() {
                         </Link>
                         <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
                             <X />
-                            <span className="sr-only">Close menu</span>
+                            <span className="sr-only">Закрыть меню</span>
                         </Button>
                     </div>
                   <nav className="flex flex-col items-center justify-center flex-1 gap-8">
