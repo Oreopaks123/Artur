@@ -14,6 +14,7 @@ const navLinks = [
   { href: '/assets', label: 'Активы' },
   { href: '/#about', label: 'Обо мне' },
   { href: '/#testimonials', label: 'Отзывы' },
+  { href: '/#contact', label: 'Контакт' },
 ];
 
 export function Header() {
@@ -64,16 +65,16 @@ export function Header() {
           behavior: 'smooth',
         });
       }
-      setIsMobileMenuOpen(false);
-    } else {
-        setIsMobileMenuOpen(false);
     }
+    setIsMobileMenuOpen(false);
   };
 
   const isLinkActive = (href: string) => {
     if (pathname === '/' && href.startsWith('/#')) {
+      // For homepage hash links, check against the activeSection state
       return activeSection === href.substring(1);
     }
+    // For other pages, it's a direct pathname match
     return pathname === href;
   };
 
@@ -94,23 +95,28 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
+          <nav className="hidden md:flex items-center gap-2">
+            {navLinks.map((link) => {
+              if(link.href === '/assets') {
+                return (
+                  <Button asChild key={link.href} className={cn(isLinkActive(link.href) ? '' : '')}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </Button>
+                )
+              }
+              return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={cn(
-                  'font-headline text-sm tracking-widest uppercase transition-colors hover:text-accent',
+                  'font-headline text-sm tracking-widest uppercase transition-colors hover:text-accent px-4 py-2 rounded-md',
                   isLinkActive(link.href) ? 'text-accent' : 'text-foreground/80'
                 )}
               >
                 {link.label}
               </Link>
-            ))}
-             <Button asChild>
-                <Link href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>Контакт</Link>
-            </Button>
+            )})}
           </nav>
 
           <div className="md:hidden">
@@ -124,7 +130,7 @@ export function Header() {
               <SheetContent side="right" className="bg-background w-full">
                 <div className="flex flex-col h-full">
                     <div className="flex justify-between items-center border-b pb-4">
-                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpe(false)}>
+                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                             <Diamond className="h-6 w-6 text-accent" />
                             <span className="text-xl font-headline font-bold tracking-wider">
                             Artur Estate
@@ -137,7 +143,7 @@ export function Header() {
                     </div>
                   <nav className="flex flex-col items-center justify-center flex-1 gap-8">
                     {navLinks.map((link) => (
-                      <Link
+                       <Link
                         key={link.href}
                         href={link.href}
                         onClick={(e) => handleLinkClick(e, link.href)}
@@ -149,9 +155,6 @@ export function Header() {
                         {link.label}
                       </Link>
                     ))}
-                     <Button asChild onClick={(e) => handleLinkClick(e, '/#contact')}>
-                        <Link href="/#contact">Контакт</Link>
-                    </Button>
                   </nav>
                 </div>
               </SheetContent>
