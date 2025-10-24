@@ -12,20 +12,71 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: '/', label: 'Главная' },
   { href: '/assets', label: 'Активы' },
+  { href: '/#about', label: 'Обо мне' },
+  { href: '/#testimonials', label: 'Отзывы' },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      const sections = ['about', 'testimonials', 'contact'];
+      let currentSection = '';
+
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = `#${sectionId}`;
+          }
+        }
+      });
+      
+      if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+        const contactSection = document.getElementById('contact');
+        if(contactSection) currentSection = '#contact';
+      }
+
+      setActiveSection(currentSection);
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.substring(2);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth',
+        });
+      }
+      setIsMobileMenuOpen(false);
+    } else {
+        setIsMobileMenuOpen(false);
+    }
+  };
+
+  const isLinkActive = (href: string) => {
+    if (pathname === '/' && href.startsWith('/#')) {
+      return activeSection === href.substring(1);
+    }
+    return pathname === href;
+  };
+
 
   return (
     <header
@@ -48,16 +99,17 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className={cn(
                   'font-headline text-sm tracking-widest uppercase transition-colors hover:text-accent',
-                  pathname === link.href ? 'text-accent' : 'text-foreground/80'
+                  isLinkActive(link.href) ? 'text-accent' : 'text-foreground/80'
                 )}
               >
                 {link.label}
               </Link>
             ))}
              <Button asChild>
-                <Link href="/#contact">Контакт</Link>
+                <Link href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>Контакт</Link>
             </Button>
           </nav>
 
@@ -72,7 +124,7 @@ export function Header() {
               <SheetContent side="right" className="bg-background w-full">
                 <div className="flex flex-col h-full">
                     <div className="flex justify-between items-center border-b pb-4">
-                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpe(false)}>
                             <Diamond className="h-6 w-6 text-accent" />
                             <span className="text-xl font-headline font-bold tracking-wider">
                             Artur Estate
@@ -88,16 +140,16 @@ export function Header() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(e) => handleLinkClick(e, link.href)}
                         className={cn(
                           'text-2xl font-headline tracking-widest uppercase transition-colors hover:text-accent',
-                          pathname === link.href ? 'text-accent' : 'text-foreground'
+                          isLinkActive(link.href) ? 'text-accent' : 'text-foreground'
                         )}
                       >
                         {link.label}
                       </Link>
                     ))}
-                     <Button asChild onClick={() => setIsMobileMenuOpen(false)}>
+                     <Button asChild onClick={(e) => handleLinkClick(e, '/#contact')}>
                         <Link href="/#contact">Контакт</Link>
                     </Button>
                   </nav>

@@ -53,7 +53,7 @@ export default function Home() {
                 size="lg"
                 className="font-headline tracking-wide"
               >
-                <Link href="#contact">Связаться с Артуром</Link>
+                <Link href="/#contact">Связаться с Артуром</Link>
               </Button>
             </div>
           </div>
