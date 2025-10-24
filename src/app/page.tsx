@@ -45,7 +45,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex gap-4 justify-center">
               <Button asChild size="lg" className="font-headline tracking-wide">
-                <Link href="/properties">Изучить недвижимость</Link>
+                <Link href="/assets">Изучить активы</Link>
               </Button>
               <Button
                 asChild
@@ -61,7 +61,7 @@ export default function Home() {
 
         <section id="about" className="py-16 md:py-24 bg-card">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
+            <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center max-w-5xl mx-auto">
               <div className="md:col-span-2">
                 <div className="relative aspect-square rounded-lg overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105">
                   <Image
@@ -90,7 +90,7 @@ export default function Home() {
 
         <section id="testimonials" className="py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center">
+            <div className="text-center max-w-5xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-headline">
                 Слова доверия
               </h2>
@@ -98,7 +98,7 @@ export default function Home() {
                 Услышьте от клиентов, которые ощутили разницу с Artur Estate.
               </p>
             </div>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {testimonials.map((testimonial) => {
                 const image = PlaceHolderImages.find(
                   (img) => img.id === testimonial.imageId
@@ -106,7 +106,7 @@ export default function Home() {
                 return (
                   <Card
                     key={testimonial.id}
-                    className="bg-card border-accent/20 flex flex-col transition-all duration-300 hover:border-accent hover:shadow-xl hover:-translate-y-2"
+                    className="bg-card border-border/20 flex flex-col transition-all duration-300 hover:border-accent hover:shadow-xl hover:-translate-y-2"
                   >
                     <CardHeader>
                       <CardTitle className="font-body text-lg leading-relaxed text-foreground/90">

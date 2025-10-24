@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Главная' },
-  { href: '/properties', label: 'Недвижимость' },
+  { href: '/assets', label: 'Активы' },
 ];
 
 export function Header() {

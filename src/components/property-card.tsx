@@ -12,7 +12,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
   const image = PlaceHolderImages.find((img) => img.id === property.imageId);
 
   return (
-    <Card className="overflow-hidden flex flex-col h-full bg-card group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+    <Card className="overflow-hidden flex flex-col h-full bg-card group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-accent border-border/20">
       <CardHeader className="p-0 relative">
         <div className="aspect-video relative overflow-hidden">
           <Image

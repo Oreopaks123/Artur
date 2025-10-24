@@ -15,7 +15,7 @@ export function Footer() {
             <h4 className="font-bold font-headline tracking-wide">Навигация</h4>
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">Главная</Link></li>
-              <li><Link href="/properties" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">Недвижимость</Link></li>
+              <li><Link href="/assets" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">Активы</Link></li>
               <li><Link href="/#contact" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">Контакт</Link></li>
             </ul>
           </div>
