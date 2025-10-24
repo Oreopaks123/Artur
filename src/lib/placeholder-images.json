@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "landing-hero",
+      "description": "Luxury modern living room with large windows",
+      "imageUrl": "https://images.unsplash.com/photo-1621293954908-907159247fc8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsdXh1cnklMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjEyOTcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury interior"
+    },
+    {
+      "id": "about-artur",
+      "description": "Portrait of a confident man in a suit",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwb3J0cmFpdCUyMG1hbnxlbnwwfHx8fDE3NjExOTQ0MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait man"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Smiling man in his 40s",
+      "imageUrl": "https://images.unsplash.com/photo-1635131902146-6957477a4ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2MTI5NTU5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Happy woman in her 30s",
+      "imageUrl": "https://images.unsplash.com/photo-1542353436-312f0e1f67ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBoYXBweXxlbnwwfHx8fDE3NjExOTk4MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person happy"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Elegant woman looking thoughtful",
+      "imageUrl": "https://images.unsplash.com/photo-1707761830139-4dd4fba23ad1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjbGllbnQlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjEyMzI0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "client portrait"
+    },
+    {
+      "id": "property-house",
+      "description": "Modern luxury house with a pool at dusk",
+      "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsdXh1cnklMjBob3VzZXxlbnwwfHx8fDE3NjEyOTcwMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury house"
+    },
+    {
+      "id": "property-car",
+      "description": "Sleek red luxury sports car on a winding road",
+      "imageUrl": "https://images.unsplash.com/photo-1580679568899-be51739ba2df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBjYXJ8ZW58MHx8fHwxNzYxMjc4MjA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury car"
+    },
+    {
+      "id": "property-jewelry",
+      "description": "A close-up of a diamond necklace on a black background",
+      "imageUrl": "https://images.unsplash.com/photo-1547738238-5ddb16bef15f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGlhbW9uZCUyMG5lY2tsYWNlfGVufDB8fHx8MTc2MTIzMzkyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diamond necklace"
+    },
+    {
+      "id": "property-apartment",
+      "description": "Interior of a modern high-rise apartment with city views",
+      "imageUrl": "https://images.unsplash.com/photo-1662454419736-de132ff75638?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYxMjk0MDMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern apartment"
+    },
+    {
+      "id": "property-yacht",
+      "description": "A large luxury yacht sailing on the ocean",
+      "imageUrl": "https://images.unsplash.com/photo-1616207133639-cd5e4db9859f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB5YWNodHxlbnwwfHx8fDE3NjEyMTM5Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury yacht"
+    },
+    {
+      "id": "property-watch",
+      "description": "A detailed shot of a luxury watch face",
+      "imageUrl": "https://images.unsplash.com/photo-1600003014637-ff82a275e191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjB3YXRjaHxlbnwwfHx8fDE3NjExOTg3MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury watch"
+    }
+  ]
 }
