@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Diamond, Menu, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -22,12 +22,18 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
+      if (pathname !== '/') {
+        setActiveSection(pathname);
+        return;
+      }
+
       const sections = ['about', 'testimonials', 'contact'];
       let currentSection = '';
 
@@ -57,39 +63,50 @@ export function Header() {
     handleScroll(); 
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
     if (href.startsWith('/#')) {
-      e.preventDefault();
       const targetId = href.substring(2);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth',
-        });
+      if (pathname === '/') {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth',
+          });
+        }
+      } else {
+        router.push(href);
       }
     } else if (href === '/') {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+        if (pathname === '/') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        } else {
+            router.push('/');
+        }
+    } else {
+        router.push(href);
     }
-    setIsMobileMenuOpen(false);
   };
 
   const isLinkActive = (href: string) => {
+    if (pathname !== '/') return pathname === href;
+
     if (href.startsWith('/#')) {
       return activeSection === href;
     }
     if (href === '/') {
-        return activeSection === href && pathname === '/';
+        return activeSection === href;
     }
-    return pathname === href;
+    return false;
   };
-
 
   return (
     <header
@@ -121,8 +138,8 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild key={assetsLink.href} className={cn('ml-4', isLinkActive(assetsLink.href) ? '' : '')}>
-                <Link href={assetsLink.href}>{assetsLink.label}</Link>
+            <Button asChild key={assetsLink.href} className={cn('ml-4', isLinkActive(assetsLink.href) ? 'bg-accent text-accent-foreground' : '')}>
+                <Link href={assetsLink.href} onClick={(e) => handleLinkClick(e, assetsLink.href)}>{assetsLink.label}</Link>
             </Button>
           </nav>
 
@@ -156,7 +173,7 @@ export function Header() {
                         onClick={(e) => handleLinkClick(e, link.href)}
                         className={cn(
                           'text-2xl font-headline tracking-widest uppercase transition-colors hover:text-accent',
-                          isLinkActive(link.href) ? 'text-accent' : 'text-foreground'
+                           isLinkActive(link.href) ? 'text-accent' : 'text-foreground'
                         )}
                       >
                         {link.label}
