@@ -70,6 +70,12 @@ export function Header() {
           behavior: 'smooth',
         });
       }
+    } else if (href === '/') {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
     }
     setIsMobileMenuOpen(false);
   };
@@ -94,7 +100,7 @@ export function Header() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105">
+          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105" onClick={(e) => handleLinkClick(e, '/')}>
             <Diamond className="h-6 w-6 text-accent" />
             <span className="text-xl font-headline font-bold tracking-wider">
               Artur Estate
@@ -131,7 +137,7 @@ export function Header() {
               <SheetContent side="right" className="bg-background w-full">
                 <div className="flex flex-col h-full">
                     <div className="flex justify-between items-center border-b pb-4">
-                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/" className="flex items-center gap-2" onClick={(e) => handleLinkClick(e, '/')}>
                             <Diamond className="h-6 w-6 text-accent" />
                             <span className="text-xl font-headline font-bold tracking-wider">
                             Artur Estate
