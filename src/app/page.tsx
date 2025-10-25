@@ -43,7 +43,7 @@ export default function Home() {
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 drop-shadow">
               Ваш поставщик самых эксклюзивных активов в мире
             </p>
-            <div className="mt-8 flex gap-4 justify-center">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="font-headline tracking-wide">
                 <Link href="/assets">Изучить активы</Link>
               </Button>
